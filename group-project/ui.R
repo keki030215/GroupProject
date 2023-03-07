@@ -16,7 +16,7 @@ ui <- fluidPage(
     tabsetPanel(
       tabPanel("Overview",
                img("", 
-                   src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fnews.gallup.com%2Fpoll%2F353858%2Falcohol-consumption-low-end-recent-readings.aspx&psig=AOvVaw1aa19XjZuGMX4Y5V1gHF29&ust=1678239793632000&source=images&cd=vfe&ved=2ahUKEwiC4p_H2Mj9AhVvKjQIHbJICDAQjRx6BAgAEAo'),
+                   src='https://github.com/keki030215/GroupProject/blob/main/group-project/alcohol.jpg'),
                titlePanel("Project Purpose"),
                p("The data were obtained in a survey of students' 
                   math and Portuguese language courses in secondary school. 
