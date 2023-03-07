@@ -7,11 +7,11 @@ ui <- fluidPage(
   titlePanel("Student Alcohol Consumption"),
   mainPanel(
     tabsetPanel(
+      tabPanel("Overview"),
+      tabPanel("Study Performances"),
       tabPanel(""),
       tabPanel(""),
-      tabPanel(""),
-      tabPanel(""),
-      tabPanel("")
+      tabPanel("Conclusion")
     )
   )
 )
