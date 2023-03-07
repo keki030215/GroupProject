@@ -9,4 +9,3 @@ d3 <- merge(d1, d2, by = c("school","sex","age","address",
 print(nrow(d3)) # 382 students
 
 row.names(d3) <- as.character(1:382)
-  

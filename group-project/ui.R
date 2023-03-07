@@ -65,7 +65,18 @@ ui <- fluidPage(
                )
       ),
       tabPanel("2"),
-      tabPanel("3"),
+      tabPanel("Variables",
+               sidebarLayout(
+                 sidebarPanel(
+                   selectInput("select_variable", "Select A Variable",
+                               choices = (1, 2, 3, 4, 5), 
+                               selected = 1)
+                 ),
+                 mainPanel(
+                   dataTableOutput("")
+                 )
+               )
+      ),
       tabPanel("Conclusion")
     )
   )
