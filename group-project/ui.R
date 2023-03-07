@@ -59,7 +59,8 @@ ui <- fluidPage(
                                       )
                  ),
                  mainPanel(
-                   plotlyOutput("plot_studyperformance")
+                   plotlyOutput("plot_studyperformance",
+                                height = 500, width = 700)
                  )
                )
       ),

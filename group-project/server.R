@@ -17,6 +17,13 @@ server <- function(input, output) {
   }, deleteFile = FALSE)
   
   output$plot_studyperformance <- renderPlotly({
+    if(is.null(input$select_school)){
+      p <- ggplot(d3) +
+        labs(title = "Please select a school :)",
+             x = "Alcohol Consumption Levels",
+             y = "Course Average Grades") +
+        xlim(1, 5) + ylim(0, 15)
+    }else{
       if(input$select_relation == "Math v.s. Daily Consumption"){
         performance_plot <- d3 %>% 
           mutate(ave_grade = (G1.x + G2.x + G3.x)/3) %>%
@@ -71,8 +78,9 @@ server <- function(input, output) {
             }
         }
       }
+     }
     }
-    ggplotly(p, height = 500, width = 700)
+    ggplotly(p)
   })
   
 }
