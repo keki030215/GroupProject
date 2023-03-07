@@ -15,7 +15,7 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview",
-               imageOutput("overview_image"),
+               tags$img(src = "alcohol.jpg", width = "300px", height = "300px"),
                titlePanel("Project Purpose"),
                p("The data were obtained in a survey of students' 
                   math and Portuguese language courses in secondary school. 
@@ -43,13 +43,12 @@ ui <- fluidPage(
                    radioButtons("select_school", "Select School(s):",
                      choices = c("Gabriel Pereira", "Mousinho da Silveira"),
                      selected = "Gabriel Pereira"),
-                   radioButtons("select_relation", 
+                   checkboxGroupInput("select_relation", 
                                       "Select the relation(s):",
                                       c("Math v.s. Daily Consumption",
                                         "Math v.s. Weekend Consumption",
                                         "Portuguese v.s. Daily Consumption",
-                                        "Portuguese v.s. Weekend Consumption"),
-                                      selected = "Math v.s. Daily Consumption"
+                                        "Portuguese v.s. Weekend Consumption")
                                       )
                  ),
                  mainPanel(
@@ -59,7 +58,7 @@ ui <- fluidPage(
       ),
       tabPanel("2"),
       tabPanel("3"),
-      tabPanel("Conclusion")
+      tabPanel("Conclusion"),
     )
   )
 )

@@ -32,6 +32,7 @@ server <- function(input, output) {
       }
     ggplotly(p, height = 500, width = 700)
   })
+  
 }
 
 shinyServer(server)
