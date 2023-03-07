@@ -40,9 +40,15 @@ ui <- fluidPage(
       tabPanel("Study Performances",
                sidebarLayout(
                  sidebarPanel(
-                   radioButtons("select_school", "Select School(s):",
-                     choices = c("GP", "MP"),
+                   checkboxGroupInput("select_school", "Select School(s):",
+                     choices = c("GP", "MS"),
                      selected = "GP"),
+                   sliderInput(
+                     "level_range", 
+                     "Select the range of the alcohol consumption levels 
+                     (from low to high):",
+                     min = 1, max = 5, 
+                     value = c(1, 5)),
                    radioButtons("select_relation", 
                                       "Select the relation(s):",
                                       c("Math v.s. Daily Consumption",
