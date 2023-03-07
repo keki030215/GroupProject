@@ -16,13 +16,12 @@ server <- function(input, output) {
          height = 300)
   })
   output$plot_studyperformance <- renderPlotly({
-    d3 %>% 
-      GP <- "Gabriel Pereira" %>% 
-      MP <- "Mousinho da Silveira"
     study_performance <- d3 %>% 
+      GP <- "Gabriel Pereira" %>%
+      MP <- "Mousinho da Silveira"
       filter(school == input$select_school) %>% 
       if(input$select_relation == "Math v.s. Daily Consumption"){
-        
+        muatate(ave_grade = (G1.x + G2.x + G3.x)/3)
       }
     p <- ggplot(uah_plot, aes(time, temp, col = region)) +
       geom_point(size = 0.5) +
