@@ -3,25 +3,13 @@ library(ggplot2)
 
 d1 <- read_delim("student-mat.csv")
 d2 <- read_delim("student-por.csv")
-
-d3 <- merge(d1, d2, by = c("school","sex","age","address","famsize","Pstatus","Medu","Fedu","Mjob","Fjob","reason","nursery","internet"))
+d3 <- merge(d1, d2, by = c("school","sex","age","address",
+                           "famsize","Pstatus","Medu","Fedu",
+                           "Mjob","Fjob","reason","nursery","internet"))
 print(nrow(d3)) # 382 students
 
 row.names(d3) <- as.character(1:382)
-
-## d3 %>%
-  ## select(age, school, G1.x, G2.x, G3.x, Dalc.x) %>% 
-  ## mutate(ave_grade = (G1.x+G2.x+G3.x)/3,
-        ## student_id = rownames(d3)) %>% 
-  ## filter(Dalc.x == 5) %>% 
-  ## ggplot(aes(student_id, ave_grade, col = factor(Dalc.x))) +
-  ## geom_point()
-
-d3 %>% 
-  select(age, school, G1.y, G2.y, G3.y, Walc.y) %>% 
-  mutate(aver = (G1.y + G2.y + G3.y)/3) %>% 
-  group_by(Walc.y) %>% 
-  reframe(ave_grade = mean(aver)) %>% 
-  ggplot(aes(Walc.y, ave_grade)) +
-  geom_line()
   
+d3 %>% 
+  select(paid.x, paid.y) %>% 
+  sample_n(10)
