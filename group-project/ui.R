@@ -24,6 +24,10 @@ ui <- fluidPage(
                   You can use it for some EDA or try to predict students' final grade."), 
                p("In this report provide an overview of how alcoholic assumptions influence students’ 
                   grades and health conditions. "),
+               h2("Focused Objectives From Data"),
+               p("1. How alcohol consumption would affect academic performances."),
+               p("2. If there is a relationship between alcohol consumption and parents’ cohabitation status."),
+               p("3. Whether the workdays alcohol consumption and weekends alcohol consumption would have different effects."),
                h2("Audience"),
                p("Individuals who are interested in conducting research on the potential correlation 
                   between a student's academic performance and overall health with alcohol consumption 
@@ -65,52 +69,59 @@ ui <- fluidPage(
                )
       ),
       
-# Jaiden's code (Theres a logic bug in it🥲)
-      tabPanel("Alcohol Consumption and 
-  Parents’ Cohabitation Status"),
-      tabsetPanel(
-        tabPanel("Plot",
-                 fluidRow(
-                   column(width = 4,
-                          h3("Plot Information"),
-                          p("The Plot page uses scatterplot format and contains 
-                      data from two data sets. One set of data is from the 
-                      students in the math course while the other set of data 
-                      is taken from students in the portugues course. With this, you 
-                        can visualize the relationship between two variables of 
-                        your choice, allowing for detailed analysis. The 
-                        variables are selected from a specific list of 
-                        variables columns in the dataset. You can also choose 
-                        to color the points based on sex, school, or 
-                        PStatus (Parents Cohabition) if desired.")
-                   ),
-                   column(width = 8,
-                          h3("Plot"),
-                          plotOutput("plot")
-                   )
-                 ),
-                 sidebarLayout(
-                   sidebarPanel(
-                     selectInput("x_axis", "X-axis:", c("Pstatus", 
-                                                        "Dalc.x", "Dalc.y", "Walc.x",
-                                                        "Walc.y", "G1.x", "G1.y", 
-                                                        "G2.x", "G2.y", "G3.x", "G3.y")),
-                     selectInput("y_axis", "Y-axis:", c("Pstatus", 
-                                                        "Dalc.x", "Dalc.y", "Walc.x",
-                                                        "Walc.y", "G1.x", "G1.y", 
-                                                        "G2.x", "G2.y", "G3.x", "G3.y")),
-                     selectInput("color_var", "Color by:", c("None",
-                                                             c("school",
-                                                               "sex", 
-                                                               "Pstatus", 
-                                                               "Dalc.x", "Dalc.y", "Walc.x",
-                                                               "Walc.y", "G1.x", "G1.y", 
-                                                               "G2.x", "G2.y", "G3.x", "G3.y")))
-                   ),
-                   mainPanel()
-                 )
-        )
-      ),
+# Jaiden's code
+tabPanel("Alcohol Consumption and Parents’ Cohabitation Status",
+         fluidRow(
+           column(width = 4,
+                  h3("Plot Information"),
+                  p("The Plot page uses scatterplot format and allows you
+to visualize the relationship between two variables of
+your choice, allowing for detailed analysis. Specific variables are focused on here
+to answer the second question on our Overview page. You can also choose
+to color the points based on sex, school, or
+PStatus (Parents Cohabition) if desired."),
+                  h3("Variable Labels:"),
+                  p("school - student's school ('GP' - Gabriel Pereira or 'MS' - Mousinho da Silveira)"),
+                  p("sex - student's sex (F - female or M - male)"),
+                  p("Pstatus - parent's cohabitation status (T - living together or A - apart)"),
+                  p("Dalc.x - workday alcohol consumption for MATH students (numeric: from 1 - very low to 5 - very high)"),
+                  p("Dalc.y - workday alcohol consumption for PORTUGUESE students (numeric: from 1 - very low to 5 - very high)"),
+                  p("Walc.x - weekend alcohol consumption for MATH students (numeric: from 1 - very low to 5 - very high)"),
+                  p("Walc.y - weekend alcohol consumption for PORTUGUESE students (numeric: from 1 - very low to 5 - very high)"),
+                  p("G1.x - first period grade, for MATH students (numeric: from 0 to 20)"),
+                  p("G1.y - first period grade, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
+                  p("G2.x - second period grade, for MATH students (numeric: from 0 to 20)"),
+                  p("G2.y - second period grade, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
+                  p("G3.x - final grade of the school year, for MATH students (numeric: from 0 to 20)"),
+                  p("G3.y - final grade of the school year, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
+                  
+           ),
+           column(width = 8,
+                  h3("Plot"),
+                  plotOutput("plot", height = 500, width = 800)
+           )
+         ),
+         sidebarLayout(
+           sidebarPanel(
+             selectInput("x_axis", "X-axis:", c("Pstatus",
+                                                "Dalc.x", "Dalc.y", "Walc.x",
+                                                "Walc.y", "G1.x", "G1.y",
+                                                "G2.x", "G2.y", "G3.x", "G3.y")),
+             selectInput("y_axis", "Y-axis:", c("Pstatus",
+                                                "Dalc.x", "Dalc.y", "Walc.x",
+                                                "Walc.y", "G1.x", "G1.y",
+                                                "G2.x", "G2.y", "G3.x", "G3.y")),
+             selectInput("color_var", "Color by:", c("None",
+                                                     c("school",
+                                                       "sex",
+                                                       "Pstatus",
+                                                       "Dalc.x", "Dalc.y", "Walc.x",
+                                                       "Walc.y", "G1.x", "G1.y",
+                                                       "G2.x", "G2.y", "G3.x", "G3.y")))
+           ),
+           mainPanel()
+         )
+),
 
       tabPanel("Conclusion")
     )
