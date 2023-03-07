@@ -8,9 +8,18 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview"),
-      tabPanel("Study Performances"),
-      tabPanel(""),
-      tabPanel(""),
+      tabPanel("Study Performances",
+               sidebarLayout(
+                 sidebarPanel(
+                   
+                 ),
+                 mainPanel(
+                   
+                 )
+               )
+      ),
+      tabPanel("2"),
+      tabPanel("3"),
       tabPanel("Conclusion")
     )
   )
