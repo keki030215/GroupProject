@@ -15,6 +15,8 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview",
+               img("", 
+                   src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fnews.gallup.com%2Fpoll%2F353858%2Falcohol-consumption-low-end-recent-readings.aspx&psig=AOvVaw1aa19XjZuGMX4Y5V1gHF29&ust=1678239793632000&source=images&cd=vfe&ved=2ahUKEwiC4p_H2Mj9AhVvKjQIHbJICDAQjRx6BAgAEAo'),
                titlePanel("Project Purpose"),
                p("The data were obtained in a survey of students' 
                   math and Portuguese language courses in secondary school. 
@@ -30,9 +32,11 @@ ui <- fluidPage(
                   students, parents, or other parties who wish to understand how alcohol consumption can 
                   impact a student's grades and health."),
                h2("Data Set"),
-               a("We accessed the data through Kaggle.com.",href='https://www.kaggle.com/datasets/uciml/student-alcohol-consumption')
-               
-               
+               a("We accessed the data through Kaggle.com.",href='https://www.kaggle.com/datasets/uciml/student-alcohol-consumption'),
+               p("The dataset contains information about the alcohol consumption habits of Portuguese secondary school students. 
+                 The data was collected through a survey and includes a variety of attributes such as demographic information, 
+                 family background, study-related variables, and alcohol consumption patterns. 
+                 The dataset consists of two separate files - one for math courses and another for Portuguese language courses."),
                ),
       tabPanel("Study Performances",
                sidebarLayout(
