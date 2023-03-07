@@ -64,19 +64,57 @@ ui <- fluidPage(
                  )
                )
       ),
-      tabPanel("2"),
-      tabPanel("Variables",
-               sidebarLayout(
-                 sidebarPanel(
+      
+# Jaiden's code (Theres a logic bug in it🥲)
+      tabPanel("Alcohol Consumption and 
+  Parents’ Cohabitation Status"),
+      tabsetPanel(
+        tabPanel("Plot",
+                 fluidRow(
+                   column(width = 4,
+                          h3("Plot Information"),
+                          p("The Plot page uses scatterplot format and contains 
+                      data from two data sets. One set of data is from the 
+                      students in the math course while the other set of data 
+                      is taken from students in the portugues course. With this, you 
+                        can visualize the relationship between two variables of 
+                        your choice, allowing for detailed analysis. The 
+                        variables are selected from a specific list of 
+                        variables columns in the dataset. You can also choose 
+                        to color the points based on sex, school, or 
+                        PStatus (Parents Cohabition) if desired.")
+                   ),
+                   column(width = 8,
+                          h3("Plot"),
+                          plotOutput("plot")
+                   )
                  ),
-                 mainPanel(
-                   dataTableOutput("1")
+                 sidebarLayout(
+                   sidebarPanel(
+                     selectInput("x_axis", "X-axis:", c("Pstatus", 
+                                                        "Dalc.x", "Dalc.y", "Walc.x",
+                                                        "Walc.y", "G1.x", "G1.y", 
+                                                        "G2.x", "G2.y", "G3.x", "G3.y")),
+                     selectInput("y_axis", "Y-axis:", c("Pstatus", 
+                                                        "Dalc.x", "Dalc.y", "Walc.x",
+                                                        "Walc.y", "G1.x", "G1.y", 
+                                                        "G2.x", "G2.y", "G3.x", "G3.y")),
+                     selectInput("color_var", "Color by:", c("None",
+                                                             c("school",
+                                                               "sex", 
+                                                               "Pstatus", 
+                                                               "Dalc.x", "Dalc.y", "Walc.x",
+                                                               "Walc.y", "G1.x", "G1.y", 
+                                                               "G2.x", "G2.y", "G3.x", "G3.y")))
+                   ),
+                   mainPanel()
                  )
-               )
+        )
       ),
+
       tabPanel("Conclusion")
     )
-  )
+  ),
 )
 
 shinyUI(ui)

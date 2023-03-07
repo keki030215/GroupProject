@@ -83,6 +83,21 @@ server <- function(input, output) {
     ggplotly(p)
   })
   
+  # Jaiden's server Code:
+  # Plot
+  output$plot <- renderPlot({
+    ggplot(d3[, c("Pstatus", "school", "sex", 
+                            "Dalc.x", "Dalc.y", "Walc.x",
+                            "Walc.y", "G1.x", "G1.y", 
+                            "G2.x", "G2.y", "G3.x", "G3.y")], 
+           aes_string(x = input$x_axis, y = input$y_axis, color = 
+                        ifelse(input$color_var == "None", "NULL", 
+                               input$color_var))) +
+      geom_jitter() +
+      ggtitle(paste(input$y_axis, "in comparison to", input$x_axis)) +
+      xlab(input$x_axis) +
+      ylab(input$y_axis)
+  })
 }
 
 shinyServer(server)
