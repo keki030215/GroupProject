@@ -14,7 +14,26 @@ ui <- fluidPage(
   titlePanel("Student Alcohol Consumption"),
   mainPanel(
     tabsetPanel(
-      tabPanel("Overview"),
+      tabPanel("Overview",
+               titlePanel("Project Purpose"),
+               p("The data were obtained in a survey of students' 
+                  math and Portuguese language courses in secondary school. 
+                  It contains a lot of interesting social, gender and study 
+                  information about students. 
+                  You can use it for some EDA or try to predict students' final grade."), 
+               p("In this report provide an overview of how alcoholic assumptions influence students’ 
+                  grades and health conditions. "),
+               h2("Audience"),
+               p("Individuals who are interested in conducting research on the potential correlation 
+                  between a student's academic performance and overall health with alcohol consumption 
+                  may find this dataset useful. Additionally, this information may be of interest to 
+                  students, parents, or other parties who wish to understand how alcohol consumption can 
+                  impact a student's grades and health."),
+               h2("Data Set"),
+               a("We accessed the data through Kaggle.com.",href='https://www.kaggle.com/datasets/uciml/student-alcohol-consumption')
+               
+               
+               ),
       tabPanel("Study Performances",
                sidebarLayout(
                  sidebarPanel(
