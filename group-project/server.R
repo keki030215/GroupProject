@@ -14,7 +14,7 @@ server <- function(input, output) {
     list(src = "alcohol.jpg",
          width = 400,
          height = 300)
-  }, deleteFile=FALSE)
+  }, deleteFile = FALSE)
   
   output$plot_studyperformance <- renderPlotly({
     var <- input$select_relation
