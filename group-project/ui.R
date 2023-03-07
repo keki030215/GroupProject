@@ -44,9 +44,15 @@ ui <- fluidPage(
                sidebarLayout(
                  sidebarPanel(
                    radioButtons("select_school", "Select School(s):",
+<<<<<<< HEAD
                      choices = c("Gabriel Pereira", "Mousinho da Silveira"),
                      selected = "Gabriel Pereira"),
                    checkboxGroupInput("select_relation", 
+=======
+                     choices = c("GP", "MP"),
+                     selected = "GP"),
+                   radioButtons("select_relation", 
+>>>>>>> e2b572d (plot change)
                                       "Select the relation(s):",
                                       c("Math v.s. Daily Consumption",
                                         "Math v.s. Weekend Consumption",
