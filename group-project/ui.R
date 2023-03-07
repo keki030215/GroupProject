@@ -15,7 +15,10 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview",
-               tags$img(src = "alcohol.jpg", width = "300px", height = "300px"),
+               br(),
+               br(),
+               br(),
+               imageOutput("overview_image"),
                titlePanel("Project Purpose"),
                p("The data were obtained in a survey of students' 
                   math and Portuguese language courses in secondary school. 
