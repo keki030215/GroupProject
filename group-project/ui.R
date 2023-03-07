@@ -46,7 +46,11 @@ ui <- fluidPage(
                      selected = "Gabriel Pereira"),
                    checkboxGroupInput("select_relation", 
                                       "Select the relation(s):",
-                                      c())
+                                      c("Math v.s. Daily Consumption",
+                                        "Math v.s. Weekend Consumption",
+                                        "Portuguese v.s. Daily Consumption",
+                                        "Portuguese v.s. Weekend Consumption")
+                                      )
                  ),
                  mainPanel(
                    plotlyOutput("plot_studyperformance")
