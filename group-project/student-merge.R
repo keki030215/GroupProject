@@ -1,7 +1,6 @@
 library(tidyverse)
 library(ggplot2)
 
-setwd("~/Documents/info201wi23/GroupProject/group-project/")
 d1 <- read_delim("student-mat.csv")
 d2 <- read_delim("student-por.csv")
 
