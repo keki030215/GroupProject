@@ -44,12 +44,13 @@ ui <- fluidPage(
                    radioButtons("select_school", "Select School(s):",
                      choices = c("Gabriel Pereira", "Mousinho da Silveira"),
                      selected = "Gabriel Pereira"),
-                   checkboxGroupInput("select_relation", 
+                   radioButtons("select_relation", 
                                       "Select the relation(s):",
                                       c("Math v.s. Daily Consumption",
                                         "Math v.s. Weekend Consumption",
                                         "Portuguese v.s. Daily Consumption",
-                                        "Portuguese v.s. Weekend Consumption")
+                                        "Portuguese v.s. Weekend Consumption"),
+                                      selected = "Math v.s. Daily Consumption"
                                       )
                  ),
                  mainPanel(
