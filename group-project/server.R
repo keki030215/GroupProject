@@ -10,7 +10,9 @@ d3 <- merge(d1, d2, by = c("school","sex","age","address",
                            "Mjob","Fjob","reason","nursery","internet"))
 
 server <- function(input, output) {
-  
+  output$plot_studyperformance <- renderPlotly({
+    checkboxGroupInput
+  })
 }
 
 shinyServer(server)

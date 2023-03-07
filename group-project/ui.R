@@ -41,10 +41,15 @@ ui <- fluidPage(
       tabPanel("Study Performances",
                sidebarLayout(
                  sidebarPanel(
-                   
+                   radioButtons("select_school", "Select School(s):",
+                     choices = c("Gabriel Pereira", "Mousinho da Silveira"),
+                     selected = "Gabriel Pereira"),
+                   checkboxGroupInput("select_relation", 
+                                      "Select the relation(s):",
+                                      c())
                  ),
                  mainPanel(
-                   
+                   plotlyOutput("plot_studyperformance")
                  )
                )
       ),

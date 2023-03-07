@@ -10,6 +10,3 @@ print(nrow(d3)) # 382 students
 
 row.names(d3) <- as.character(1:382)
   
-d3 %>% 
-  select(paid.x, paid.y) %>% 
-  sample_n(10)
