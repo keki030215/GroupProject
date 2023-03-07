@@ -18,57 +18,56 @@ server <- function(input, output) {
   
   output$plot_studyperformance <- renderPlotly({
       if(input$select_relation == "Math v.s. Daily Consumption"){
-        p <- d3 %>% 
+        performance_plot <- d3 %>% 
           mutate(ave_grade = (G1.x + G2.x + G3.x)/3) %>%
           filter(school %in% input$select_school) %>% 
           group_by(Dalc.x, school) %>% 
-          reframe(average_grades = mean(ave_grade)) %>% 
-          ggplot(aes(Dalc.x, average_grades, col = school)) +
+          reframe(average_grades = mean(ave_grade))
+        p <- ggplot(performance_plot,
+                 aes(Dalc.x, average_grades, col = school)) +
           geom_line() +
           labs(x = "Daily Alcohol Consumption Levels", 
                y = "Math Course Average Grades") +
           xlim(input$level_range[1], input$level_range[2])
       }else{
         if(input$select_relation == "Math v.s. Weekend Consumption"){
-          p <- d3 %>% 
+          performance_plot <- d3 %>% 
             mutate(ave_grade = (G1.x + G2.x + G3.x)/3) %>% 
             filter(school %in% input$select_school) %>%
             group_by(Walc.x, school) %>% 
             reframe(average_grades = mean(ave_grade))
-          ggplot(aes(Walc.x, average_grades, col = school)) +
+        p <- ggplot(performance_plot,
+                      aes(Walc.x, average_grades, col = school)) +
             geom_line() +
             labs(x = "Weekend Alcohol Consumption Levels", 
                  y = "Math Course Average Grades") +
             xlim(input$level_range[1], input$level_range[2])
         }else{
           if(input$select_relation == "Portuguese v.s. Daily Consumption"){
-            p <- d3 %>% 
+            performance_plot <- d3 %>% 
               mutate(ave_grade = (G1.y + G2.y + G3.y)/3) %>%
               filter(school %in% input$select_school) %>%
               group_by(Dalc.y, school) %>% 
-              reframe(average_grades = mean(ave_grade)) %>% 
-              ggplot(aes(Dalc.y, average_grades, col = school)) +
+              reframe(average_grades = mean(ave_grade)) 
+        p <- ggplot(performance_plot,
+                          aes(Dalc.y, average_grades, col = school)) +
               geom_line() +
               labs(x = "Daily Alcohol Consumption Levels", 
                    y = "Portuguese Course Average Grades") +
               xlim(input$level_range[1], input$level_range[2])
           }else{
             if(input$select_relation == "Portuguese v.s. Weekend Consumption"){
-              p <- d3 %>% 
+              performance_plot <- d3 %>% 
                 mutate(ave_grade = (G1.y + G2.y + G3.y)/3) %>% 
                 filter(school %in% input$select_school) %>%
                 group_by(Walc.y, school) %>% 
-                reframe(average_grades = mean(ave_grade)) %>% 
-                ggplot(aes(Walc.y, average_grades, col = school)) +
+                reframe(average_grades = mean(ave_grade))
+        p <- ggplot(performance_plot,
+                           aes(Walc.y, average_grades, col = school)) +
                 geom_line() +
                 labs(x = "Weekend Alcohol Consumption Levels", 
                      y = "Portuguese Course Average Grades") +
                 xlim(input$level_range[1], input$level_range[2])
-            }else{
-              if(is.null(input$select_relation)){
-                p <- ggplot(mtcars) +
-                  labs("Please select a school")
-              }
             }
         }
       }
