@@ -15,9 +15,6 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview",
-               br(),
-               br(),
-               br(),
                imageOutput("overview_image"),
                titlePanel("Project Purpose"),
                p("The data were obtained in a survey of students' 
@@ -44,20 +41,15 @@ ui <- fluidPage(
                sidebarLayout(
                  sidebarPanel(
                    radioButtons("select_school", "Select School(s):",
-<<<<<<< HEAD
-                     choices = c("Gabriel Pereira", "Mousinho da Silveira"),
-                     selected = "Gabriel Pereira"),
-                   checkboxGroupInput("select_relation", 
-=======
                      choices = c("GP", "MP"),
                      selected = "GP"),
                    radioButtons("select_relation", 
->>>>>>> e2b572d (plot change)
                                       "Select the relation(s):",
                                       c("Math v.s. Daily Consumption",
                                         "Math v.s. Weekend Consumption",
                                         "Portuguese v.s. Daily Consumption",
-                                        "Portuguese v.s. Weekend Consumption")
+                                        "Portuguese v.s. Weekend Consumption"),
+                                      selected = "Math v.s. Daily Consumption"
                                       )
                  ),
                  mainPanel(
@@ -67,7 +59,7 @@ ui <- fluidPage(
       ),
       tabPanel("2"),
       tabPanel("3"),
-      tabPanel("Conclusion"),
+      tabPanel("Conclusion")
     )
   )
 )
