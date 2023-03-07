@@ -15,8 +15,7 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview",
-               img("", 
-                   src='https://github.com/keki030215/GroupProject/blob/main/group-project/alcohol.jpg'),
+               imageOutput("overview_image"),
                titlePanel("Project Purpose"),
                p("The data were obtained in a survey of students' 
                   math and Portuguese language courses in secondary school. 

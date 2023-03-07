@@ -10,6 +10,11 @@ d3 <- merge(d1, d2, by = c("school","sex","age","address",
                            "Mjob","Fjob","reason","nursery","internet"))
 
 server <- function(input, output) {
+  output$overview_image <- renderImage({
+    list(src = "alcohol.jpg",
+         width = 400,
+         height = 300)
+  })
   output$plot_studyperformance <- renderPlotly({
     d3 %>% 
       GP <- "Gabriel Pereira" %>% 
