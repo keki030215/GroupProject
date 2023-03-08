@@ -49,19 +49,19 @@ ui <- fluidPage(
                fluidRow(
                  column(width = 4, 
                         h3("Variable Information"),
+                        p("In the following three widgets,
+                          we can select", strong("school(s)"), 
+                          "and the", strong("relationship"),"we want
+                          to focus on."),
                         p('The school “GP” and “MS” here stand for 
-                          two different schools.'),
+                          two different schools: ', strong("GP"),
+                        "- School Gabriel Pereira", ", and", 
+                        strong("MS"), "- School Mousinho da Silveira."),
                         h3("Selection"),
                  sidebarPanel(width = 12,
                    checkboxGroupInput("select_school", "Select School(s):",
                      choices = c("GP", "MS"),
                      selected = "GP"),
-                   sliderInput(
-                     "level_range", 
-                     "Select the range of the alcohol consumption levels 
-                     (from low to high):",
-                     min = 1, max = 5, 
-                     value = c(1, 5)),
                    radioButtons("select_relation", 
                                       "Select the relation(s):",
                                       c("Math v.s. Daily Consumption",
@@ -75,9 +75,9 @@ ui <- fluidPage(
                  column(width = 8,
                         h3("Basic Information"),
                         p("The plot demonstrates the relationship between 
-                          alcohol consumption and academic performance in 
-                          the math course and the Portuguese course, 
-                          respectively."),
+                          alcohol consumption (workdays and weekends  
+                          respectively), and academic performance in 
+                          the math course or the Portuguese course."),
                    h3("Line Plot"),
                    plotlyOutput("plot_studyperformance"),
                  )

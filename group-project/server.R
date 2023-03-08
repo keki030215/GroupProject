@@ -35,8 +35,7 @@ server <- function(input, output) {
                  aes(Dalc.x, average_grades, col = school)) +
           geom_line() +
           labs(x = "Daily Alcohol Consumption Levels", 
-               y = "Math Course Average Grades") +
-          xlim(input$level_range[1], input$level_range[2])
+               y = "Math Course Average Grades")
       }else{
         if(input$select_relation == "Math v.s. Weekend Consumption"){
           performance_plot <- d3 %>% 
@@ -48,8 +47,7 @@ server <- function(input, output) {
                       aes(Walc.x, average_grades, col = school)) +
             geom_line() +
             labs(x = "Weekend Alcohol Consumption Levels", 
-                 y = "Math Course Average Grades") +
-            xlim(input$level_range[1], input$level_range[2])
+                 y = "Math Course Average Grades")
         }else{
           if(input$select_relation == "Portuguese v.s. Daily Consumption"){
             performance_plot <- d3 %>% 
@@ -61,8 +59,7 @@ server <- function(input, output) {
                           aes(Dalc.y, average_grades, col = school)) +
               geom_line() +
               labs(x = "Daily Alcohol Consumption Levels", 
-                   y = "Portuguese Course Average Grades") +
-              xlim(input$level_range[1], input$level_range[2])
+                   y = "Portuguese Course Average Grades")
           }else{
             if(input$select_relation == "Portuguese v.s. Weekend Consumption"){
               performance_plot <- d3 %>% 
@@ -74,8 +71,7 @@ server <- function(input, output) {
                            aes(Walc.y, average_grades, col = school)) +
                 geom_line() +
                 labs(x = "Weekend Alcohol Consumption Levels", 
-                     y = "Portuguese Course Average Grades") +
-                xlim(input$level_range[1], input$level_range[2])
+                     y = "Portuguese Course Average Grades")
             }
         }
       }
