@@ -122,7 +122,9 @@ PStatus (Parents Cohabition) if desired."),
            mainPanel()
          )
 ),
-
+      tabPanel("histogram view",
+               selectInput("select_variable")
+      ),
       tabPanel("Conclusion")
     )
   ),
