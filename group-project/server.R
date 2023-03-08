@@ -16,7 +16,7 @@ server <- function(input, output) {
          height = 250)
   }, deleteFile = FALSE)
   
-  # Tab 1 - Liuhan 
+# Tab 1 - Liuhan 
   output$plot_studyperformance <- renderPlotly({
     if(is.null(input$select_school)){
       p <- ggplot(d3) +
@@ -96,7 +96,7 @@ server <- function(input, output) {
       ylab(input$y_axis)
   })
   
-    #Tab 3 - Liuhan
+#Tab 3 - Liuhan
     output$hist_plot <- renderPlotly({
       p_hist <- d3 %>% 
         ggplot(aes_string(input$select_variable, 
