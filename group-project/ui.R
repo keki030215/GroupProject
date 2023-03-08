@@ -124,7 +124,9 @@ PStatus (Parents Cohabition) if desired."),
 ),
       tabPanel("histogram view",
                fluidRow(
-                 column(width = 4, 
+                 column(width = 4,
+                        sidebarPanel(width = 12,
+                                     h3("Variable Selection"),
                   selectInput("select_variable", "Select the variable:",
                               choices = c("Dalc.x", "Dalc.y",
                                           "Walc.x", "Walc.y",
@@ -140,7 +142,8 @@ PStatus (Parents Cohabition) if desired."),
                                           "absences.x", "absences.y"),
                            ),
                   selectInput("select_group", 
-                              "Select the variable that will group the data",
+                              "Select the variable 
+                              that will group up the data",
                                choices = c("sex", "school", "Pstatus",
                                            "address", "famsize",
                                            "schoolsup.x", "schoolsup.y",
@@ -151,8 +154,10 @@ PStatus (Parents Cohabition) if desired."),
                                            "higher.x", "higher.y",
                                            "internet.x", "internet.y",
                                            "romantic.x", "romantic.y"))
+                 )
                  ),
                  column(width = 8,
+                        h3("Histgram"),
                         plotlyOutput("hist_plot"))
                )
       ),
