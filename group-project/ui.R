@@ -63,7 +63,7 @@ ui <- fluidPage(
                      choices = c("GP", "MS"),
                      selected = "GP"),
                    radioButtons("select_relation", 
-                                      "Select the relation(s):",
+                                      "Select the relation:",
                                       c("Math v.s. Daily Consumption",
                                         "Math v.s. Weekend Consumption",
                                         "Portuguese v.s. Daily Consumption",
@@ -74,10 +74,13 @@ ui <- fluidPage(
                  ),
                  column(width = 8,
                         h3("Basic Information"),
-                        p("The plot demonstrates the relationship between 
-                          alcohol consumption (workdays and weekends  
-                          respectively), and academic performance in 
-                          the math course or the Portuguese course."),
+                        p("The plot demonstrates the relationship between", 
+                          em("alcohol consumption levels"), strong("(workdays 
+                          and weekends  respectively)"), "and", em("academic 
+                          performance"), "in the", strong("math"), "course 
+                          or the", strong("Portuguese"), "course."),
+                        p("The average grades are calculated from the mean
+                        of students' three tests in the corresponding course."),
                    h3("Line Plot"),
                    plotlyOutput("plot_studyperformance"),
                  )
