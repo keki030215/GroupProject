@@ -104,8 +104,11 @@ server <- function(input, output) {
         geom_histogram(stat = "count", position = "dodge2")
       ggplotly(p_hist)
     })
-    
-
+    output$hist_text <- renderText({
+      paste("The histogram now displays the variable",
+            input$select_variable, ", and now it is grouped by",
+            input$select_group, ".")
+    })
 }
 
 shinyServer(server)

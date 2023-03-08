@@ -142,9 +142,15 @@ PStatus (Parents Cohabition) if desired."),
            )
          ),
 ),
-      tabPanel("histogram view",
+      tabPanel("Histogram View",
                fluidRow(
                  column(width = 4,
+                        h3("Basic Information"),
+                        p("The histogram demonstrates the frequency of", 
+                          strong("variables (have more than 2 levels)"), 
+                          "that are not shown inthe two previous page before, and the selected 
+                          variable is grouped by", strong("binary variables"),  
+                          "provided by the data set."),
                         h3("Variable Selection"),
                         sidebarPanel(width = 12,
                   selectInput("select_variable", "Select the variable:",
@@ -152,6 +158,7 @@ PStatus (Parents Cohabition) if desired."),
                                           "Walc.x", "Walc.y",
                                           "Medu", "Fedu",
                                           "Mjob", "Fjob",
+                                          "reason", "guardian",
                                           "health.x", "health.y", 
                                           "traveltime.x", "traveltime.y",
                                           "studytime.x", "studytime.y",
@@ -163,7 +170,7 @@ PStatus (Parents Cohabition) if desired."),
                            ),
                   selectInput("select_group", 
                               "Select the variable 
-                              that will group up the data",
+                              that will group up the data:",
                                choices = c("sex", "school", "Pstatus",
                                            "address", "famsize",
                                            "nursery", "internet",
@@ -172,12 +179,39 @@ PStatus (Parents Cohabition) if desired."),
                                            "paid.x", "paid.y",
                                            "activities.x", "activities.y",
                                            "higher.x", "higher.y",
-                                           "romantic.x", "romantic.y"))
+                                           "romantic.x", "romantic.y")),
+                  h4(em("Explanation:")), 
+                  p("Variable with suffix", strong('"-x"'), "is data from the", 
+                     strong("Math"), "class."),
+                  p("Variable with suffix", strong('"-y"'), "is data from the", 
+                     strong("Portuguese"), "class.")
                  )
                  ),
                  column(width = 8,
-                        h3("Histgram"),
-                        plotlyOutput("hist_plot"))
+                        h3("Histogram"),
+                        textOutput("hist_text"),
+                        plotlyOutput("hist_plot"),
+                        h3("Variable Labels:"),
+                        fluidRow(
+                          column(width = 6,
+                                 h4("Multiple Level Variables:"),
+                                 p(strong("Dalc"), " - workday alcohol consumption (numeric: from 1 - very low to 5 - very high)"),
+                                 p(strong("Walc"), " - weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)"),
+                                 p(strong("Medu"), " - mother's education (numeric: 0 - none, 1 - primary education (4th grade), 2 – 5th to 9th grade, 
+                                   3 – secondary education or 4 – higher education)"),
+                                 p(strong("Fedu"), "- father's education (numeric: 0 - none, 1 - primary education (4th grade), 2 – 5th to 9th grade, 
+                                 3 – secondary education or 4 – higher education"),
+                                 p(strong("Mjob"), "- mother's job (nominal: 'teacher', 'health' care related, civil 'services' (e.g. administrative or police), 'at_home' or 'other')"), 
+                                 p(strong("Fjob"), "- father's job (nominal: 'teacher', 'health' care related, civil 'services' (e.g. administrative or police), 'at_home' or 'other')"),
+                                 p(strong("school")," - student's school ('GP' - Gabriel Pereira or 'MS' - Mousinho da Silveira)"),
+                                 p(strong("reason"), "reason to choose this school (nominal: close to 'home', school 'reputation', 'course' preference or 'other')"),
+                                 p(strong("sex"), " - student's sex (F - female or M - male)"),
+                                 p(strong("Pstatus"), " - parent's cohabitation status (T - living together or A - apart)")
+                          ),
+                          column(width = 6,
+                                 
+                          )
+                        ))
                )
       ),
       tabPanel("Conclusion")
