@@ -30,7 +30,6 @@ ui <- fluidPage(
                h2("Focused Objectives From Data"),
                p("1. How alcohol consumption would affect academic performances."),
                p("2. If there is a relationship between alcohol consumption and parents’ cohabitation status."),
-               p("3. Whether the workdays alcohol consumption and weekends alcohol consumption would have different effects."),
                h2("Audience"),
                p("Individuals who are interested in conducting research on the potential correlation 
                   between a student's academic performance and overall health with alcohol consumption 
@@ -225,9 +224,37 @@ PStatus (Parents Cohabition) if desired."),
                )
       ),
       tabPanel("Conclusion",
-               h3("Academic Performances"),
-               p("Students who study Portuguese and drink more 
-                 in the weekend tend to receive less course average grades")
+               h3("Our Findings"),
+               fluidRow(
+                 column(width = 4,
+               h4("Academic Performances"),
+               p("Students who drink more during weekend would 
+                 receive less average course grades for both Math 
+                 and Portuguese performance. Students who drink daily 
+                 have less grades in Portuguese as well. However, students 
+                 who drink in weekdays won’t receive relatively low grades 
+                 for math for the more they drink. ")
+               ),
+               column(width = 4,
+                      h4("Parent’s cohabitation status"),
+                      p("Students who have parents living together tend 
+                        to drink more (5) during weekends than during weekdays.
+                        Students who have parents apart also seem to have 
+                        the similar trend where they drink less during 
+                        weekdays and relatively more during weekends. During 
+                        weekdays, male tend to drink more (5) compared to 
+                        females, for both parents living together or apart. ")
+                      ),
+               column(width = 4,
+                      h4("Histogram View"),
+                      p("Students who have shows to have more study 
+                        time responded more frequently to pursuing higher 
+                        education. Students who have zero failures tend to 
+                        answer more yes to pursuing higher education as well. 
+                        Students who have less absences also have high 
+                        responses to continue pursuing higher education. ")
+                      ),
+      )
                )
     )
   ),
