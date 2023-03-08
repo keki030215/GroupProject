@@ -98,7 +98,7 @@ PStatus (Parents Cohabition) if desired."),
            ),
            column(width = 8,
                   h3("Plot"),
-                  plotOutput("plot", height = 500, width = 800)
+                  plotOutput("plot")
            )
          ),
          sidebarLayout(
@@ -136,7 +136,7 @@ PStatus (Parents Cohabition) if desired."),
                                           "absences.x", "absences.y"),
                            selected = "health.x")
                  ),
-                 column(width = 10,
+                 column(width = 8,
                         plotlyOutput("hist_plot"))
                )
       ),

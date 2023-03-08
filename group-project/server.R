@@ -101,9 +101,9 @@ server <- function(input, output) {
     
     #Tab 3 - Liuhan
     output$hist_plot <- renderPlotly({
-      p <- ggplot(d3, aes_string(input$select_variable)) +
+      p_hist <- ggplot(d3, aes_string(input$select_variable)) +
         geom_histogram()
-      ggplotly(p)
+      ggplotly(p_hist)
     })
     
   })
