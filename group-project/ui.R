@@ -98,47 +98,49 @@ your choice, allowing for detailed analysis. Specific variables are focused on h
 to answer the second question on our Overview page. You can also choose
 to color the points based on sex, school, or
 PStatus (Parents Cohabition) if desired."),
-                  h3("Variable Labels:"),
-                  p("school - student's school ('GP' - Gabriel Pereira or 'MS' - Mousinho da Silveira)"),
-                  p("sex - student's sex (F - female or M - male)"),
-                  p("Pstatus - parent's cohabitation status (T - living together or A - apart)"),
-                  p("Dalc.x - workday alcohol consumption for MATH students (numeric: from 1 - very low to 5 - very high)"),
-                  p("Dalc.y - workday alcohol consumption for PORTUGUESE students (numeric: from 1 - very low to 5 - very high)"),
-                  p("Walc.x - weekend alcohol consumption for MATH students (numeric: from 1 - very low to 5 - very high)"),
-                  p("Walc.y - weekend alcohol consumption for PORTUGUESE students (numeric: from 1 - very low to 5 - very high)"),
-                  p("G1.x - first period grade, for MATH students (numeric: from 0 to 20)"),
-                  p("G1.y - first period grade, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
-                  p("G2.x - second period grade, for MATH students (numeric: from 0 to 20)"),
-                  p("G2.y - second period grade, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
-                  p("G3.x - final grade of the school year, for MATH students (numeric: from 0 to 20)"),
-                  p("G3.y - final grade of the school year, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
-                  
+                  h3("Variable Selection"),
+                  sidebarPanel(width = 12,
+                    selectInput("x_axis", "X-axis:", c("Pstatus",
+                                                       "Dalc.x", "Dalc.y", "Walc.x",
+                                                       "Walc.y", "G1.x", "G1.y",
+                                                       "G2.x", "G2.y", "G3.x", "G3.y")),
+                    selectInput("y_axis", "Y-axis:", c("Pstatus",
+                                                       "Dalc.x", "Dalc.y", "Walc.x",
+                                                       "Walc.y", "G1.x", "G1.y",
+                                                       "G2.x", "G2.y", "G3.x", "G3.y")),
+                    selectInput("color_var", "Color by:", c("None",
+                                                            c("school",
+                                                              "sex",
+                                                              "Pstatus",
+                                                              "Dalc.x", "Dalc.y", "Walc.x",
+                                                              "Walc.y", "G1.x", "G1.y",
+                                                              "G2.x", "G2.y", "G3.x", "G3.y")))
+                  )
            ),
            column(width = 8,
                   h3("Plot"),
-                  plotOutput("plot")
+                  plotOutput("plot"),
+                  h3("Variable Labels:"),
+                  fluidRow(
+                    column(width = 6,
+                           p(strong("school")," - student's school ('GP' - Gabriel Pereira or 'MS' - Mousinho da Silveira)"),
+                           p(strong("sex"), " - student's sex (F - female or M - male)"),
+                           p(strong("Pstatus"), " - parent's cohabitation status (T - living together or A - apart)"),
+                           p(strong("Dalc.x"), " - workday alcohol consumption for MATH students (numeric: from 1 - very low to 5 - very high)"),
+                           p(strong("Dalc.y"), " - workday alcohol consumption for PORTUGUESE students (numeric: from 1 - very low to 5 - very high)"),
+                           p(strong("Walc.x"), " - weekend alcohol consumption for MATH students (numeric: from 1 - very low to 5 - very high)"),
+                           p(strong("Walc.y"), " - weekend alcohol consumption for PORTUGUESE students (numeric: from 1 - very low to 5 - very high)")),
+                    column(width = 6,
+                           p(strong("G1.x"), " - first period grade, for MATH students (numeric: from 0 to 20)"),
+                           p(strong("G1.y"), " - first period grade, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
+                           p(strong("G2.x"), " - second period grade, for MATH students (numeric: from 0 to 20)"),
+                           p(strong("G2.y"), "- second period grade, for PORTUGUESE s†udents (numeric: from 0 to 20)"),
+                           p(strong("G3.x"), " - final grade of the school year, for MATH students (numeric: from 0 to 20)"),
+                           p(strong("G3.y"), " - final grade of the school year, for PORTUGUESE s†udents (numeric: from 0 to 20)")
+                           )
+                  )
            )
          ),
-         sidebarLayout(
-           sidebarPanel(
-             selectInput("x_axis", "X-axis:", c("Pstatus",
-                                                "Dalc.x", "Dalc.y", "Walc.x",
-                                                "Walc.y", "G1.x", "G1.y",
-                                                "G2.x", "G2.y", "G3.x", "G3.y")),
-             selectInput("y_axis", "Y-axis:", c("Pstatus",
-                                                "Dalc.x", "Dalc.y", "Walc.x",
-                                                "Walc.y", "G1.x", "G1.y",
-                                                "G2.x", "G2.y", "G3.x", "G3.y")),
-             selectInput("color_var", "Color by:", c("None",
-                                                     c("school",
-                                                       "sex",
-                                                       "Pstatus",
-                                                       "Dalc.x", "Dalc.y", "Walc.x",
-                                                       "Walc.y", "G1.x", "G1.y",
-                                                       "G2.x", "G2.y", "G3.x", "G3.y")))
-           ),
-           mainPanel()
-         )
 ),
       tabPanel("histogram view",
                fluidRow(
