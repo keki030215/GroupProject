@@ -98,7 +98,8 @@ server <- function(input, output) {
       ggtitle(paste(input$y_axis, "in comparison to", input$x_axis)) +
       xlab(input$x_axis) +
       ylab(input$y_axis)
-    
+  })
+  
     #Tab 3 - Liuhan
     output$hist_plot <- renderPlotly({
       p_hist <- ggplot(d3, aes_string(input$select_variable)) +
@@ -106,7 +107,7 @@ server <- function(input, output) {
       ggplotly(p_hist)
     })
     
-  })
+
 }
 
 shinyServer(server)
