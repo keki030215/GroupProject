@@ -224,7 +224,11 @@ PStatus (Parents Cohabition) if desired."),
                         ))
                )
       ),
-      tabPanel("Conclusion"),
+      tabPanel("Conclusion",
+               h3("Academic Performances"),
+               p("Students who study Portuguese and drink more 
+                 in the weekend tend to receive less course average grades")
+               )
     )
   ),
 )
