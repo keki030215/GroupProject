@@ -16,6 +16,7 @@ server <- function(input, output) {
          height = 300)
   }, deleteFile = FALSE)
   
+  # Tab 1 - Liuhan 
   output$plot_studyperformance <- renderPlotly({
     if(is.null(input$select_school)){
       p <- ggplot(d3) +
@@ -97,6 +98,14 @@ server <- function(input, output) {
       ggtitle(paste(input$y_axis, "in comparison to", input$x_axis)) +
       xlab(input$x_axis) +
       ylab(input$y_axis)
+    
+    #Tab 3 - Liuhan
+    output$hist_plot <- renderPlotly({
+      p <- ggplot(d3, aes_string(input$select_variable)) +
+        geom_histogram()
+      ggplotly(p)
+    })
+    
   })
 }
 

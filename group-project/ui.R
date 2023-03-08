@@ -123,7 +123,22 @@ PStatus (Parents Cohabition) if desired."),
          )
 ),
       tabPanel("histogram view",
-               selectInput("select_variable")
+               fluidRow(
+                 column(width = 4, 
+                  selectInput("select_variable", "Select the variable:",
+                              choices = c("health.x", "health.y", 
+                                          "traveltime.x", "traveltime.y",
+                                          "studytime.x", "studytime.y",
+                                          "failures.x", "failures.y",
+                                          "famrel.x", "famrel.y",
+                                          "freetime.x", "freetime.y",
+                                          "goout.x", "goout.y",
+                                          "absences.x", "absences.y"),
+                           selected = "health.x")
+                 ),
+                 column(width = 10,
+                        plotlyOutput("hist_plot"))
+               )
       ),
       tabPanel("Conclusion")
     )
