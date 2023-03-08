@@ -12,8 +12,8 @@ d3 <- merge(d1, d2, by = c("school","sex","age","address",
 server <- function(input, output) {
   output$overview_image <- renderImage({
     list(src = "alcohol.jpg",
-         width = 400,
-         height = 300)
+         width = 250,
+         height = 250)
   }, deleteFile = FALSE)
   
   # Tab 1 - Liuhan 

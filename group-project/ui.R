@@ -15,8 +15,11 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(
       tabPanel("Overview",
-               imageOutput("overview_image"),
-               titlePanel("Project Purpose"),
+               fluidRow(
+                 column(width = 4,
+               imageOutput("overview_image")),
+               column(width = 8,
+               h2("Project Purpose"),
                p("The data were obtained in a survey of students' 
                   math and Portuguese language courses in secondary school. 
                   It contains a lot of interesting social, gender and study 
@@ -39,11 +42,17 @@ ui <- fluidPage(
                p("The dataset contains information about the alcohol consumption habits of Portuguese secondary school students. 
                  The data was collected through a survey and includes a variety of attributes such as demographic information, 
                  family background, study-related variables, and alcohol consumption patterns. 
-                 The dataset consists of two separate files - one for math courses and another for Portuguese language courses."),
+                 The dataset consists of two separate files - one for math courses and another for Portuguese language courses."))
+               )
                ),
       tabPanel("Study Performances",
-               sidebarLayout(
-                 sidebarPanel(
+               fluidRow(
+                 column(width = 4, 
+                        h3("Variable Information"),
+                        p('The school “GP” and “MS” here stand for 
+                          two different schools.'),
+                        h3("Selection"),
+                 sidebarPanel(width = 12,
                    checkboxGroupInput("select_school", "Select School(s):",
                      choices = c("GP", "MS"),
                      selected = "GP"),
@@ -61,10 +70,16 @@ ui <- fluidPage(
                                         "Portuguese v.s. Weekend Consumption"),
                                       selected = "Math v.s. Daily Consumption"
                                       )
+                  )
                  ),
-                 mainPanel(
-                   plotlyOutput("plot_studyperformance",
-                                height = 500, width = 800)
+                 column(width = 8,
+                        h3("Basic Information"),
+                        p("The plot demonstrates the relationship between 
+                          alcohol consumption and academic performance in 
+                          the math course and the Portuguese course, 
+                          respectively."),
+                   h3("Line Plot"),
+                   plotlyOutput("plot_studyperformance"),
                  )
                )
       ),
