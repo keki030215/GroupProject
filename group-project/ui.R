@@ -103,19 +103,16 @@ PStatus (Parents Cohabition) if desired."),
                   sidebarPanel(width = 12,
                     selectInput("x_axis", "X-axis:", c("Pstatus",
                                                        "Dalc.x", "Dalc.y", "Walc.x",
-                                                       "Walc.y", "G1.x", "G1.y",
-                                                       "G2.x", "G2.y", "G3.x", "G3.y")),
+                                                       "Walc.y")),
                     selectInput("y_axis", "Y-axis:", c("Pstatus",
                                                        "Dalc.x", "Dalc.y", "Walc.x",
-                                                       "Walc.y", "G1.x", "G1.y",
-                                                       "G2.x", "G2.y", "G3.x", "G3.y")),
+                                                       "Walc.y")),
                     selectInput("color_var", "Color by:", c("None",
                                                             c("school",
                                                               "sex",
                                                               "Pstatus",
                                                               "Dalc.x", "Dalc.y", "Walc.x",
-                                                              "Walc.y", "G1.x", "G1.y",
-                                                              "G2.x", "G2.y", "G3.x", "G3.y")))
+                                                              "Walc.y")))
                   )
            ),
            column(width = 8,
@@ -227,7 +224,11 @@ PStatus (Parents Cohabition) if desired."),
                         ))
                )
       ),
-      tabPanel("Conclusion")
+      tabPanel("Conclusion"),
+h3("Our findings"),
+p("Response to the first page."),
+p("Response to the second page"),
+p("Response to the thrid page"),
     )
   ),
 )
