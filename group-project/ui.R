@@ -225,10 +225,6 @@ PStatus (Parents Cohabition) if desired."),
                )
       ),
       tabPanel("Conclusion"),
-h3("Our findings"),
-p("Response to the first page."),
-p("Response to the second page"),
-p("Response to the thrid page"),
     )
   ),
 )
