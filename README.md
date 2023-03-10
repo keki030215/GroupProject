@@ -1,6 +1,6 @@
 # GroupProject
 
-### Shiny Link: https://keki030215.shinyapps.io/group-project/ 
+### Shiny Link: https://keki030215.shinyapps.io/group-project/
 
 ### Data Information
 
