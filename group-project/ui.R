@@ -267,10 +267,4 @@ PStatus (Parents Cohabition) if desired."),
   )
 )
 
-server <- function(input, output) {
-  output$sampleMain <- renderDataTable({
-    d1[sample(nrow(d1), 10), ]
-  })
-}
-
-shinyApp(ui = ui, server = server)
+shinyUI(ui)

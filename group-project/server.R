@@ -96,7 +96,7 @@ server <- function(input, output) {
       ylab(input$y_axis)
   })
   
-#Tab 3 - Liuhan
+# Tab 3 - Liuhan
     output$hist_plot <- renderPlotly({
       p_hist <- d3 %>% 
         ggplot(aes_string(input$select_variable, 
@@ -110,6 +110,9 @@ server <- function(input, output) {
             input$select_group, ".")
     })
     
+    output$table <- renderDataTable({
+      
+    })
 }
 
 shinyServer(server)
