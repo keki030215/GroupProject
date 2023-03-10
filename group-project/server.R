@@ -109,6 +109,7 @@ server <- function(input, output) {
             input$select_variable, ", and now it is grouped by",
             input$select_group, ".")
     })
+    
 }
 
 shinyServer(server)

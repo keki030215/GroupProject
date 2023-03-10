@@ -26,10 +26,13 @@ ui <- fluidPage(
                   information about students. 
                   You can use it for some EDA or try to predict students' final grade."), 
                p("In this report provide an overview of how alcoholic assumptions influence students’ 
-                  grades and health conditions. "),
+                  grades, and how parents' cohabitation status affects students' alcohol
+                 consumption levels. A histogram serves as a general illustration 
+                 of other data set variables."),
                h2("Focused Objectives From Data"),
                p("1. How alcohol consumption would affect academic performances."),
                p("2. If there is a relationship between alcohol consumption and parents’ cohabitation status."),
+               p("3. A brief analysis of other variables in the data set."),
                h2("Audience"),
                p("Individuals who are interested in conducting research on the potential correlation 
                   between a student's academic performance and overall health with alcohol consumption 
