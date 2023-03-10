@@ -256,12 +256,20 @@ PStatus (Parents Cohabition) if desired."),
                         answer more yes to pursuing higher education as well. 
                         Students who have less absences also have high 
                         responses to continue pursuing higher education. ")
-                      ),
-               mainPanel("Table Sample",
-                 # Display a small table of the data
-                 dataTableOutput("sampleMain")
                )
-      )
+      ),
+      h3("Data Quality"),
+      p("One ethical issue we see with this data is that since 
+                   it focuses on a specific group of students from one country (Portugal), 
+                   one concern is that the data and our interpretations/analysis of it will 
+                   be generalized for all teens/students, specifically within that age group
+                   of 15-22. This can pose an ethical concern because it may give people
+                   false assumptions, thus creating things like stereotypes and labels, 
+                   which may stigmatize students who consume alcohol, leading to negative
+                   consequences such as social isolation or discrimination. In addition,
+                   this research topics may involves participants who may be underage."),
+      h3("Sample Table"),
+      dataTableOutput("sampleMain")
                )
     )
   )

@@ -110,8 +110,8 @@ server <- function(input, output) {
             input$select_group, ".")
     })
     
-    output$table <- renderDataTable({
-      
+    output$sampleMain <- renderDataTable({
+      d3[sample(nrow(d3), 10), ]
     })
 }
 
