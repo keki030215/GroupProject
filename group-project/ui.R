@@ -257,10 +257,20 @@ PStatus (Parents Cohabition) if desired."),
                         Students who have less absences also have high 
                         responses to continue pursuing higher education. ")
                       ),
+               mainPanel("Table Sample",
+                 # Display a small table of the data
+                 dataTableOutput("sampleMain")
+               )
       )
                )
     )
-  ),
+  )
 )
 
-shinyUI(ui)
+server <- function(input, output) {
+  output$sampleMain <- renderDataTable({
+    d1[sample(nrow(d1), 10), ]
+  })
+}
+
+shinyApp(ui = ui, server = server)
